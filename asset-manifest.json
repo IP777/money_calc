@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/money_calc/static/css/main.ab08a54f.css",
+    "main.js": "/money_calc/static/js/main.48cb1464.js",
+    "index.html": "/money_calc/index.html",
+    "main.ab08a54f.css.map": "/money_calc/static/css/main.ab08a54f.css.map",
+    "main.48cb1464.js.map": "/money_calc/static/js/main.48cb1464.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab08a54f.css",
+    "static/js/main.48cb1464.js"
+  ]
+}
