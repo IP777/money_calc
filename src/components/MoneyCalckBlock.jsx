@@ -3,9 +3,18 @@ import React from "react";
 export default function MoneyCalcBlock({ item }) {
   return (
     <div className="r_wrapper">
-      <div className="r_investor">Кому виннi: {item.investorName}</div>
-      <div className="r_debtor">Хто винний: {item.debtorsName}</div>
-      <div className="r_debtor">Скiльки винний: {Math.ceil(item.take)}грн</div>
+      <div className="r_investor">
+        Кому виннi: <span style={{ fontWeight: 500 }}>{item.investorName}</span>
+      </div>
+      <div className="r_debtor">
+        Хто винний:{" "}
+        <span style={{ fontWeight: 500, color: "darkblue" }}>
+          {item.debtorsName}
+        </span>
+      </div>
+      <div className="r_debtor_money">
+        Скiльки винний: {Math.ceil(item.take)}грн
+      </div>
     </div>
   );
 }

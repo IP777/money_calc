@@ -26,7 +26,8 @@ export default function PersonButton({
         value={pbMoney}
         onChange={(e) => changeMoney(e.target.value)}
       />
-      <div className="text">грн</div>
+      <div className="pb_text">грн</div>
+      <input type="checkbox" />
     </div>
   );
 }

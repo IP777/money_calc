@@ -1,0 +1,63 @@
+.App {
+  margin: 0 auto;
+  width: 390px;
+  text-align: center;
+  border: 1px solid gray;
+  font-size: 14px;
+}
+
+.header {
+  background: rgb(48, 46, 150);
+  padding: 5px;
+  color: #fff;
+}
+
+.main {
+  padding-top: 10px;
+}
+
+.main_head_block {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.del_btn {
+  margin-bottom: 5px;
+}
+
+.person_block {
+  padding: 0 10px;
+}
+
+.pb_wrapper {
+  display: grid;
+  grid-template-columns: 30px 150px 100px 30px 1fr;
+  gap: 3px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pb_text {
+  text-align: start;
+  padding: 0;
+}
+
+.cal_bloc {
+  padding: 5px 0;
+}
+
+.r_wrapper {
+  border-bottom: 1px solid black;
+  padding: 5px 0;
+}
+
+.r_wrapper:last-child {
+  padding: 0;
+  padding-top: 5px;
+  border: 0;
+}
+
+.r_debtor_money {
+  color: red;
+  font-weight: 500;
+}
