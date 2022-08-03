@@ -7,7 +7,7 @@ export default function MoneyCalcBlock({ item }) {
         Кому виннi: <span style={{ fontWeight: 500 }}>{item.investorName}</span>
       </div>
       <div className="r_debtor">
-        Хто винний:{" "}
+        Хто винен:{" "}
         <span style={{ fontWeight: 500, color: "darkblue" }}>
           {item.debtorsName}
         </span>
