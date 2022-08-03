@@ -6,6 +6,30 @@
 }
 
 .header {
-  width: 100%;
-  background: darkcyan;
+  background: rgb(48, 46, 150);
+  padding: 5px;
+  color: #fff;
+}
+
+.main {
+  padding-top: 10px;
+}
+
+.pb_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  margin-bottom: 10px;
+}
+
+.pb_coast {
+  width: 90px;
+}
+
+.cal_bloc {
+}
+
+.r_wrapper {
+  border-bottom: 1px solid black;
+  padding: 10px 0;
 }
