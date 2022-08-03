@@ -9,21 +9,30 @@ const initPersonArr = [
     id: "1",
     name: "Чувак 1",
     money: "",
+    checked: false,
   },
   {
     id: "2",
     name: "Чувак 2",
     money: "",
+    checked: false,
   },
   {
     id: "3",
     name: "Чувак 3",
     money: "",
+    checked: false,
   },
 ];
 
 function App() {
-  const [personArr, setPersonArr] = useState(initPersonArr);
+  const localData = JSON.parse(localStorage.getItem("personArr"));
+  const setLocalData = (arr) =>
+    localStorage.setItem("personArr", JSON.stringify(arr));
+
+  const [personArr, setPersonArr] = useState(
+    localData ? localData : initPersonArr
+  );
   const [result, setResult] = useState(null);
 
   const AddPersonHandler = () => {
@@ -33,6 +42,7 @@ function App() {
         id: randomID(),
         name: "",
         money: "",
+        checked: false,
       },
     ]);
   };
@@ -65,9 +75,6 @@ function App() {
     const debtorsSort = [...debtors];
     const sArr = [];
 
-    console.log("debtors", debtors);
-    console.log("pDebtors", pDebtors);
-
     for (let i = 0; i < investors.length; i++) {
       let inv = investors[i];
 
@@ -81,6 +88,7 @@ function App() {
               investorName: pInventors[i].name,
               debtorsName: pDebtors[i2].name,
               take: -debtorsSort[i2],
+              checked: pDebtors[i2].checked,
             });
             debtorsSort[i2] = 0;
           } else {
@@ -90,6 +98,7 @@ function App() {
               investorName: pInventors[i].name,
               debtorsName: pDebtors[i2].name,
               take: invR,
+              checked: pDebtors[i2].checked,
             });
             break;
           }
@@ -97,12 +106,18 @@ function App() {
       }
     }
     setResult(sArr);
+
+    setLocalData(personArr);
   };
 
   const removeDataHandler = () => {
     setPersonArr(initPersonArr);
     setResult(null);
+    setLocalData(null);
   };
+
+  const allUnchecked =
+    result && result.filter((item) => item.checked).length === 0;
 
   return (
     <div className="App">
@@ -118,6 +133,8 @@ function App() {
                 key={item.id}
                 pbName={item.name}
                 pbMoney={item.money}
+                checked={item.checked}
+                result={result}
                 addHandler={() => removePersonHandler(item.id)}
                 changeName={(text) =>
                   setPersonArr(
@@ -133,6 +150,15 @@ function App() {
                     )
                   )
                 }
+                sortHandler={(checked) =>
+                  setPersonArr(
+                    personArr.map((item2) =>
+                      item2.id === item.id
+                        ? { ...item2, checked }
+                        : { ...item2, checked: false }
+                    )
+                  )
+                }
               />
             ))}
           </div>
@@ -142,15 +168,26 @@ function App() {
         </div>
         <div className="cal_bloc">
           <button type="button" onClick={calculateHandler}>
-            Прорахувати
+            {result ? "Оновити" : "Прорахувати"}
           </button>
 
           <div className="total_coast_block">
             {result &&
-              result.map((item) => (
-                <MoneyCalcBlock key={item.id} item={item} />
-              ))}
+              result.map(
+                (item) =>
+                  (item.checked || allUnchecked) && (
+                    <MoneyCalcBlock key={item.id} item={item} />
+                  )
+              )}
           </div>
+          {result && (
+            <div
+              style={{ marginTop: 5, fontStyle: "italic", fontSize: 16 }}
+            >{`Загальна сума: ${personArr.reduce(
+              (prevValue, currValue) => prevValue + Number(currValue.money),
+              0
+            )} грн`}</div>
+          )}
         </div>
       </div>
     </div>

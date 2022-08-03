@@ -6,6 +6,9 @@ export default function PersonButton({
   addHandler,
   changeName,
   changeMoney,
+  sortHandler,
+  checked,
+  result,
 }) {
   return (
     <div className="pb_wrapper">
@@ -15,7 +18,7 @@ export default function PersonButton({
       <input
         className="pb_name"
         type="text"
-        placeholder="Name"
+        placeholder="Iм`я"
         value={pbName}
         onChange={(e) => changeName(e.target.value)}
       />
@@ -27,7 +30,12 @@ export default function PersonButton({
         onChange={(e) => changeMoney(e.target.value)}
       />
       <div className="pb_text">грн</div>
-      <input type="checkbox" />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => sortHandler(e.target.checked)}
+        disabled={!result}
+      />
     </div>
   );
 }

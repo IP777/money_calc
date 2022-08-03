@@ -12,9 +12,7 @@ export default function MoneyCalcBlock({ item }) {
           {item.debtorsName}
         </span>
       </div>
-      <div className="r_debtor_money">
-        Скiльки винний: {Math.ceil(item.take)}грн
-      </div>
+      <div className="r_debtor_money">Скiльки: {Math.ceil(item.take)}грн</div>
     </div>
   );
 }
