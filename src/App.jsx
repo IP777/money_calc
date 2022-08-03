@@ -88,7 +88,7 @@ function App() {
               investorName: pInventors[i].name,
               debtorsName: pDebtors[i2].name,
               take: -debtorsSort[i2],
-              checked: pDebtors[i2].checked,
+              checked: pDebtors[i2].checked || pInventors[i].checked,
             });
             debtorsSort[i2] = 0;
           } else {
@@ -98,7 +98,7 @@ function App() {
               investorName: pInventors[i].name,
               debtorsName: pDebtors[i2].name,
               take: invR,
-              checked: pDebtors[i2].checked,
+              checked: pDebtors[i2].checked || pInventors[i].checked,
             });
             break;
           }
@@ -150,15 +150,15 @@ function App() {
                     )
                   )
                 }
-                sortHandler={(checked) =>
+                sortHandler={(checked) => {
                   setPersonArr(
-                    personArr.map((item2) =>
-                      item2.id === item.id
+                    personArr.map((item2) => {
+                      return item2.id === item.id
                         ? { ...item2, checked }
-                        : { ...item2, checked: false }
-                    )
-                  )
-                }
+                        : { ...item2, checked: false };
+                    })
+                  );
+                }}
               />
             ))}
           </div>
