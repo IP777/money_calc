@@ -11,8 +11,11 @@ export default function PersonButton({
   result,
 }) {
   return (
-    <div className="pb_wrapper">
-      <button className="pb_plus" type="button" onClick={addHandler}>
+    <div
+      className="pb_wrapper"
+      style={{ background: checked ? "#BC8F8F" : "none" }}
+    >
+      <button className="pb_plus btn" type="button" onClick={addHandler}>
         -
       </button>
       <input

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style/App.css";
 import PersonButton from "./components/PersonButton";
 import randomID from "./utils/randomID";
@@ -110,6 +110,10 @@ function App() {
     setLocalData(personArr);
   };
 
+  useEffect(() => {
+    calculateHandler();
+  }, [personArr]);
+
   const removeDataHandler = () => {
     setPersonArr(initPersonArr);
     setResult(null);
@@ -162,14 +166,14 @@ function App() {
               />
             ))}
           </div>
-          <button type="button" onClick={AddPersonHandler}>
+          <button className="btn" type="button" onClick={AddPersonHandler}>
             +
           </button>
         </div>
         <div className="cal_bloc">
-          <button type="button" onClick={calculateHandler}>
+          {/* <button type="button" onClick={calculateHandler}>
             {result ? "Оновити" : "Прорахувати"}
-          </button>
+          </button> */}
 
           <div className="total_coast_block">
             {result &&
