@@ -1,6 +1,7 @@
 .App {
   margin: 0 auto;
-  width: 390px;
+  /* width: 390px; */
+  /* width: 100vw; */
   text-align: center;
   border: 1px dotted gray;
   font-size: 14px;

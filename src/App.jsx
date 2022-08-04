@@ -6,20 +6,110 @@ import MoneyCalcBlock from "./components/MoneyCalckBlock";
 
 const initPersonArr = [
   {
+    id: "4",
+    name: "Пацай Роман",
+    money: "",
+    checked: false,
+  },
+  {
     id: "1",
-    name: "Чувак 1",
+    name: "Iванов Петро",
     money: "",
     checked: false,
   },
   {
     id: "2",
-    name: "Чувак 2",
+    name: "Ступарь Олександр",
     money: "",
     checked: false,
   },
   {
     id: "3",
-    name: "Чувак 3",
+    name: "Слободянюк Дмитрiй",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "5",
+    name: "Марусяк Роман",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "6",
+    name: "Чабан Антон",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "7",
+    name: "Голосов Денис",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "8",
+    name: "Синютка Микола",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "9",
+    name: "Бубiсь Василь",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "10",
+    name: "Ластовецький Богдан",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "11",
+    name: "Голод Юрiй",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "12",
+    name: "Гуменчук Роман",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "13",
+    name: "Кравченко Олег",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "14",
+    name: "Воронiн Валерiй",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "15",
+    name: "Вігнан Євген",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "16",
+    name: "Сисоєв Володим",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "17",
+    name: "Строколіс Андрій",
+    money: "",
+    checked: false,
+  },
+  {
+    id: "18",
+    name: "Прядка Юрій",
     money: "",
     checked: false,
   },
@@ -30,9 +120,10 @@ function App() {
   const setLocalData = (arr) =>
     localStorage.setItem("personArr", JSON.stringify(arr));
 
-  const [personArr, setPersonArr] = useState(
-    localData ? localData : initPersonArr
-  );
+  // const [personArr, setPersonArr] = useState(
+  //   localData ? localData : initPersonArr
+  // );
+  const [personArr, setPersonArr] = useState(initPersonArr);
   const [result, setResult] = useState(null);
 
   const AddPersonHandler = () => {
@@ -107,7 +198,7 @@ function App() {
     }
     setResult(sArr);
 
-    setLocalData(personArr);
+    // setLocalData(personArr);
   };
 
   useEffect(() => {
@@ -117,7 +208,7 @@ function App() {
   const removeDataHandler = () => {
     setPersonArr(initPersonArr);
     setResult(null);
-    setLocalData(null);
+    // setLocalData(null);
   };
 
   const allUnchecked =
