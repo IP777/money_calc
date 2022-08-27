@@ -1,11 +1,5 @@
 const initPersonArr = [
   {
-    id: "4",
-    name: "Пацай Роман",
-    money: "",
-    checked: false,
-  },
-  {
     id: "1",
     name: "Iванов Петро",
     money: "",
